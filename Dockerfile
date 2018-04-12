@@ -63,6 +63,6 @@ RUN docker-php-ext-install mysqli && \
 	docker-php-ext-install mbstring && \
 	docker-php-ext-install opcache
 
-ADD docker/php/php.ini /etc/php7/php.ini
+COPY config/php/php.ini /etc/php7/php.ini
 
 EXPOSE 80
