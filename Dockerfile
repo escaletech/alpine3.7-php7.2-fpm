@@ -10,7 +10,8 @@ RUN apk add --update --no-cache --virtual .ext-deps \
   libmcrypt-dev \
   autoconf \
   g++ \
-  make
+  make \
+  nodejs
 
 RUN set -xe \
     && apk add --update --no-cache \
