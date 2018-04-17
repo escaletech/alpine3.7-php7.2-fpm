@@ -2,15 +2,17 @@ FROM php:7.2-fpm-alpine3.7
 
 WORKDIR /app
 
-RUN apk add --update --no-cache --virtual .ext-deps \
-  libjpeg-turbo-dev \
-  libwebp-dev \
-  libpng-dev \
-  freetype-dev \
-  libmcrypt-dev \
+RUN apk upgrade && apk add --update --no-cache --virtual .ext-deps \
   autoconf \
+  automake \
+  nasm \
   g++ \
   make \
+  freetype-dev \
+  libjpeg-turbo-dev \
+  libmcrypt-dev \
+  libpng-dev \
+  libwebp-dev \
   nodejs
 
 RUN set -xe \
