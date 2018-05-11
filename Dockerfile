@@ -14,7 +14,8 @@ RUN apk upgrade && apk add --update --no-cache --virtual .ext-deps \
   libmcrypt-dev \
   libpng-dev \
   libwebp-dev \
-  nodejs
+  nodejs \
+  yarn
 
 RUN set -xe \
     && apk add --update --no-cache \
