@@ -52,6 +52,7 @@ RUN set -xe \
     php7-pdo_sqlite \
     php7-phar \
     php7-posix \
+    php7-redis \
     php7-session \
     php7-simplexml \
     php7-soap \
@@ -63,13 +64,13 @@ RUN set -xe \
     php7-zip \
     php7-zlib
 
+RUN pecl install redis
 RUN docker-php-ext-install mysqli && \
 	docker-php-ext-install pdo_mysql && \
 	docker-php-ext-install mbstring && \
-	docker-php-ext-install opcache
+	docker-php-ext-install opcache && \
+        docker-php-ext-enable redis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
-
-COPY config/php/php.ini /etc/php7/php.ini
 
 EXPOSE 80
